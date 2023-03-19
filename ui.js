@@ -1,17 +1,17 @@
 class UI {
-    constructor() {
-        this.profile = document.getElementById('profile');
-    }
+  constructor() {
+    this.profile = document.querySelector(".profile");
+  }
 
-    showUser(user) {
-        // display the profile of the user
-        this.profile.innerHTML = `
-        <div class= " card card-body mb-3">
+  showUser(user) {
+    // display the profile of the user
+    this.profile.innerHTML = `
+        <div class= " card card-body mb-3 mx-5" style='background-color:transparent'">
          <div class = "row">
             <div class ="col-md-3">
                 <img class = "img-fluid mb-2" src = "${user.avatar_url}">
-                <a href = "${user.html_url}" target ="_blank" class = "btn btn-primary btn-block
-                mb-4 "> View Profile </a>
+                <a href = "${user.html_url}" target ="_blank" class = "btn bg-white btn-block
+                mb-4 text-black "> View Profile </a>
             </div>
             <div class = "col-md-9">
                 <span class = "badge badge-primary"> Public Repos: ${user.public_repos}</span>
@@ -19,11 +19,11 @@ class UI {
                 <span class = "badge badge-success"> Followers: ${user.followers}</span>
                 <span class = "badge badge-info"> Following: ${user.following}</span>
                 <br> <br>
-                <ul class = "list-group">
-                    <li class = "list-group-item">Company: ${user.company}</li>
-                    <li class = "list-group-item">Website/Blog: ${user.blog}</li>
-                    <li class = "list-group-item">Location: ${user.location}</li>
-                    <li class = "list-group-item">Member Since: ${user.created_at}</li>
+                <ul class = "list-group" >
+                    <li class = "list-group-item profileDetLi">Company: ${user.company}</li>
+                    <li class = "list-group-item profileDetLi">Website/Blog: ${user.blog}</li>
+                    <li class = "list-group-item profileDetLi">Location: ${user.location}</li>
+                    <li class = "list-group-item profileDetLi">Member Since: ${user.created_at}</li>
                 </li>
             </div>
           </div>
@@ -31,32 +31,32 @@ class UI {
         <h3 class = "page-heading mb-3"> Latest Repos </h3>
         <div id = "repos"></div>
         `;
-    }
-    // show alert message
-    showAlert(message, className) {
-        // remove any other alerts
-        this.clearAlert();
-        // Create div
-        const div = document.createElement('div');
-        // Add class
-        div.className = className;
-        // add text
-        div.appendChild(document.createTextNode(message));
-        // Get parent
-        const container = document.querySelector('.searchContainer');
-        //  Get search box
-        const search = document. querySelector('.search');
-        // insert text
-        container.insertBefore(div, search)
-        // after 5 seconds remove the current alert dialog
-        setTimeout(()=>this.clearAlert(), 5000)
-    }
+  }
+  // show alert message
+  showAlert(message, className) {
+    // remove any other alerts
+    this.clearAlert();
+    // Create div
+    const div = document.createElement("div");
+    // Add class
+    div.className = className;
+    // add text
+    div.appendChild(document.createTextNode(message));
+    // Get parent
+    const container = document.querySelector(".searchContainer");
+    //  Get search box
+    const search = document.querySelector(".search");
+    // insert text
+    container.insertBefore(div, search);
+    // after 5 seconds remove the current alert dialog
+    setTimeout(() => this.clearAlert(), 5000);
+  }
 
-    // Show repos
-    showRepos(repos) {
-        let output = '';
-        repos.forEach((repo)=> {
-            output +=`
+  // Show repos
+  showRepos(repos) {
+    let output = "";
+    repos.forEach((repo) => {
+      output += `
             <div class = "card card-body mb-3">
                 <div class = "row">
                     <div class ="col-md-6">
@@ -69,21 +69,20 @@ class UI {
                     </div>
                 </div>
             </div>
-            `
-        })
-        document.getElementById('repos').innerHTML = output;
-    }
+            `;
+    });
+    document.getElementById("repos").innerHTML = output;
+  }
 
-    // clear alert message
-    clearAlert() {
-        const currentAlert = document.querySelector('.alert');
-        if(currentAlert){
-            currentAlert.remove();
-        }
-        
+  // clear alert message
+  clearAlert() {
+    const currentAlert = document.querySelector(".alert");
+    if (currentAlert) {
+      currentAlert.remove();
     }
-    // clear profile
-    clearProfile() {
-        this.profile.innerHTML = "";
-    }
+  }
+  // clear profile
+  clearProfile() {
+    this.profile.innerHTML = "";
+  }
 }

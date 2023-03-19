@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+body {
+  font-family: "Poppins" !important;
+}
+
+@media only screen and (min-width: 778px) {
+  .w-lg-50 {
+    width: 50% !important;
+  }
+}
+
+.profile {
+  margin-top: 5rem;
+}
+
+.profile > .card {
+  border: none;
+}
+
+.profileDetLi {
+  background-color: transparent;
+  color: white;
+  border: none;
+  margin: 8px;
+}
+
+.page-heading {
+  margin: 3rem;
+  color: white;
+}
+
+#repos {
+  margin: 3rem;
+}
+#repos > .card {
+  background-color: transparent;
+  border: none;
+}
+
+#repos a {
+  color: white;
+  text-decoration: none;
+}
